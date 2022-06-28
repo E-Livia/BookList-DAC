@@ -3,7 +3,7 @@
       <h1>REGISTER</h1>
     </div>
   
-    <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <form [formGroup]="registerForm" (ngSubmit)="postUser()">
       <mat-form-field appearance="fill">
         <mat-label>First Name</mat-label>
         <input
@@ -59,9 +59,9 @@
           type="password"
           matInput
           placeholder="Enter password"
-          formControlName="password"
+          formControlName="confirmedPassword"
           required
-          name="password"
+          name="confirmedPassword"
           autocomplete="on"
         />
       </mat-form-field>
@@ -69,7 +69,7 @@
       
   
       <a [routerLink]="'/auth/login'">Already have an account? Login!</a>
-      <button mat-raised-button color="primary" type="submit">REGISTER</button>
+      <button mat-raised-button color="primary" type="submit" >REGISTER</button>
     </form>
   </div>
   

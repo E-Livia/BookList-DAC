@@ -1,8 +1,11 @@
+import { registerLocaleData } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { UserDTO } from '../userDTO';
+import { AuthServiceService } from '../auth-service.service';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +15,8 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
 
-  constructor(private router: Router, private _snackBar: MatSnackBar,private http: HttpClient) { }
+  constructor(private router: Router, private _snackBar: MatSnackBar,private http: HttpClient,
+    private service:AuthServiceService) {}
 
   ngOnInit(): void {
     this.initializeForm();
@@ -22,38 +26,38 @@ export class RegisterComponent implements OnInit {
     this.registerForm = new FormGroup({
       email: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required),
+      firstName: new FormControl(null, Validators.required),
+      lastName: new FormControl(null, Validators.required)
     });
   }
 
-  register() {
-    const body ={
-      "email": "eve.holt@reqres.in",
-      "password": "pistol"
-    }
-
-
-    this.http.post("https://reqres.in/api/register", body).subscribe(
-      (res: any) => {
-        console.log(res);
-        this.router.navigateByUrl('');
-        this._snackBar.open('Register Successfully!', '', {
-          duration: 2000,
-        });
-      },
-      (error) => {
-        console.error(error);
-        this._snackBar.open(error.error.error, '', {
-          duration: 2000,
-        });
-      }
-    )
-  }
-
-  get email() {
+  get getEmail() {
     return this.registerForm.get('email');
   }
 
-  get password() {
+  postUser()
+  {
+    
+      let user = new UserDTO(this.getFirstName?.value, this.getLastName?.value, this.getEmail?.value,
+        this.getPassword?.value);
+       
+    
+      this.service.postUser(user);
+  }
+
+  get getPassword() {
     return this.registerForm.get('password');
+  }
+
+  get getLastName() {
+    return this.registerForm.get('lastName');
+  }
+
+  get getFirstName() {
+    return this.registerForm.get('firstName');
+  }
+
+  get getConfirmedPassword() {
+    return this.registerForm.get('confirmedPassword');
   }
 }
