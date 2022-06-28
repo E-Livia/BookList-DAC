@@ -6,7 +6,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserDTO } from '../userDTO';
 import { AuthServiceService } from '../auth-service.service';
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -27,7 +26,8 @@ export class RegisterComponent implements OnInit {
       email: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required),
       firstName: new FormControl(null, Validators.required),
-      lastName: new FormControl(null, Validators.required)
+      lastName: new FormControl(null, Validators.required),
+      confirmedPassword: new FormControl(null, Validators.required)
     });
   }
 
@@ -42,7 +42,11 @@ export class RegisterComponent implements OnInit {
         this.getPassword?.value);
        
     
-      this.service.postUser(user);
+      this.service.postUser(user).subscribe();
+      this._snackBar.open(this.getFirstName?.value, '', {
+        duration: 2000,
+      });
+      
   }
 
   get getPassword() {

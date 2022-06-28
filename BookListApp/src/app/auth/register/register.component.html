@@ -3,7 +3,7 @@
       <h1>REGISTER</h1>
     </div>
   
-    <form [formGroup]="registerForm" (ngSubmit)="postUser()">
+    <form [formGroup]="registerForm" >
       <mat-form-field appearance="fill">
         <mat-label>First Name</mat-label>
         <input
@@ -69,7 +69,7 @@
       
   
       <a [routerLink]="'/auth/login'">Already have an account? Login!</a>
-      <button mat-raised-button color="primary" type="submit" >REGISTER</button>
+      <button mat-raised-button color="primary" type="submit" (click)="postUser()" >REGISTER</button>
     </form>
   </div>
   

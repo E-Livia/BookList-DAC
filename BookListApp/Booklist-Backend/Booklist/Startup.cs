@@ -52,6 +52,8 @@ namespace Booklist
 
             app.UseRouting();
 
+            app.UseCors(builder => builder.AllowAnyMethod().AllowAnyOrigin().AllowAnyHeader());
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

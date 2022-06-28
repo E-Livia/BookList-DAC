@@ -8,12 +8,13 @@ import { UserDTO } from './userDTO'
   providedIn: 'root'
 })
 export class AuthServiceService {
-  private membersUrl = 'https://localhost:44340/api/users';
-
+  private membersUrl = 'http://localhost:44340/api/users';
   constructor(private httpClient: HttpClient) { }
 
   public postUser(user :UserDTO): Observable<any> {
-    const url = `${this.membersUrl}/add`; 
+    
+    const url = `${this.membersUrl}/add`; console.log(url);
+    console.log(user);
     return this.httpClient.post(url, user);
   }
 
