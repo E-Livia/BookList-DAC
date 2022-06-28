@@ -5,6 +5,30 @@
   
     <form [formGroup]="registerForm" (ngSubmit)="register()">
       <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input
+          matInput
+          placeholder="Enter first name"
+          formControlName="firstName"
+          required
+          name="firstName"
+          autocomplete="on"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input
+          matInput
+          placeholder="Enter last name"
+          formControlName="lastName"
+          required
+          name="lastName"
+          autocomplete="on"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
         <input
           matInput
@@ -42,31 +66,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>First Name</mat-label>
-        <input
-          type="password"
-          matInput
-          placeholder="Enter first name"
-          formControlName="firstName"
-          required
-          name="firstName"
-          autocomplete="on"
-        />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Last Name</mat-label>
-        <input
-          type="password"
-          matInput
-          placeholder="Enter last name"
-          formControlName="lastName"
-          required
-          name="lastName"
-          autocomplete="on"
-        />
-      </mat-form-field>
+      
   
       <a [routerLink]="'/auth/login'">Already have an account? Login!</a>
       <button mat-raised-button color="primary" type="submit">REGISTER</button>
