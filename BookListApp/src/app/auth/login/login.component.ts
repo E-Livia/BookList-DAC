@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     this.http.post("https://reqres.in/api/login", body).subscribe(
       (res: any) => {
         console.log(res);
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl('main-page');
         this._snackBar.open('Log In Successfully!', '', {
           duration: 2000,
         });
