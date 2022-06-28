@@ -3,12 +3,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
   logInForm!: FormGroup;
 
@@ -49,6 +51,10 @@ export class LoginComponent implements OnInit {
       }
     )
   }
+
+  rememberMe(ob: MatCheckboxChange) {
+    //to do
+ } 
 
   get email() {
     return this.logInForm.get('email');

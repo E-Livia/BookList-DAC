@@ -29,6 +29,8 @@
       />
     </mat-form-field>
 
+    <mat-checkbox class="checkbox" (change)="rememberMe($event)">Remember Me</mat-checkbox>
+
     <a [routerLink]="'/auth/register'">Don't have an account? Register now!</a>
     <button mat-raised-button color="primary" type="submit">LOG IN</button>
   </form>
