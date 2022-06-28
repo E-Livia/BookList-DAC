@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LlPAotm+9uo4sBhiinyxMyLddJCDB144HmNnnpUm/pR+yecsQPpVgOXsiBUqSWlaBhttcEipnXu6TPdWvKpmXg==",
+  "dgSpecHash": "dUNIxqwCSSK7KkMGEDStSGpuR3qCbv6rbPvUMfJnfch3H6p6229Mi4v+U/tGf3g+qiuyxOQ/CILJpwXhS2tT2w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\valen\\Desktop\\Booklist\\Booklist\\Booklist.csproj",
+  "projectFilePath": "C:\\Users\\valen\\Desktop\\Laboratoare\\DAC\\BookListApp\\Booklist-Backend\\Booklist\\Booklist.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\valen\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\valen\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

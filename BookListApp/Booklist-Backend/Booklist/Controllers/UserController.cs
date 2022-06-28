@@ -1,4 +1,4 @@
-﻿using Booklist.DataLayer.Entities;
+using Booklist.DataLayer.Entities;
 using Booklist.DataLayer.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -21,12 +21,14 @@ namespace Booklist.Controllers
         [Route("add")] //localhost:5000/api/users/add
         public async Task<ActionResult<bool>> Add([FromBody] User request)
         {
-            var user = new User()
-            {
-                username = request.username,
-                password = request.password,
+      var user = new User()
+      {
+              email = request.email,
+              password = request.password,
+              firstName = request.firstName,
+              lastName = request.lastName,
 
-            };
+      };
 
             userRepository.Insert(user);
 

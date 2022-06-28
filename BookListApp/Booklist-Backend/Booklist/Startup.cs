@@ -63,7 +63,8 @@ namespace Booklist
         private void AddDependencies(IServiceCollection services)
         {
             services
-                .AddDbContext<EfDbContext>(options => options
+                .AddDbContext<EfDbContext>(options => options //Data Source=localhost\\SQLEXPRESS
+                //Server=localhost
                     .UseSqlServer("Data Source=localhost\\SQLEXPRESS; Database=Booklist; Trusted_Connection=True"));
             services.AddScoped<IUserRepository, UserRepository>();
         }

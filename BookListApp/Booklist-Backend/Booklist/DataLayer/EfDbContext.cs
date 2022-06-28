@@ -1,4 +1,4 @@
-﻿using Booklist.DataLayer.Entities;
+using Booklist.DataLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -18,7 +18,9 @@ namespace Booklist.DataLayer
 
         public EfDbContext()
         {
-            DbContextOptions options = new DbContextOptionsBuilder().UseSqlServer("Data Source=localhost\\SQLEXPRESS; Database=Booklist; Trusted_Connection=True").Options;
+      //Data Source=localhost\\SQLEXPRESS
+      //Server=localhost
+      DbContextOptions options = new DbContextOptionsBuilder().UseSqlServer("Data Source=localhost\\SQLEXPRESS; Database=Booklist; Trusted_Connection=True").Options;
         }
         public EfDbContext(DbContextOptions<EfDbContext> options) : base(options)
         {
@@ -31,8 +33,9 @@ namespace Booklist.DataLayer
                 IConfigurationRoot configuration = new ConfigurationBuilder()
                    .SetBasePath(Directory.GetCurrentDirectory())
                    .AddJsonFile("appsettings.Development.json")
-                   .Build();
-                var connectionString = "Data Source=localhost\\SQLEXPRESS; Database=Booklist; Trusted_Connection=True";
+                   .Build();//Data Source=localhost\\SQLEXPRESS
+                            //Server=localhost
+        var connectionString = "Data Source=localhost\\SQLEXPRESS; Database=Booklist; Trusted_Connection=True";
                 optionsBuilder.UseSqlServer(connectionString);
             }
         }
