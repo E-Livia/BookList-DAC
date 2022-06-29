@@ -49,6 +49,30 @@ namespace Booklist.Controllers
       else
         return BadRequest("User was not found!");
     }
-
+    [HttpGet]
+    [Route("delete/all")]
+    public async Task<ActionResult<List<User>>> DeleteAll()
+    {
+      var users = userRepository.GetAllUsers();
+      foreach (var user in users)
+      {
+        userRepository.Delete(user);
+      }
+      await userRepository.SaveChangesAsync();
+      return Ok(users);
+    }
+    [HttpGet]
+    [Route("delete")]
+    public async Task<ActionResult<List<User>>> Delete([FromQuery] Guid userId)
+    {
+      var users = userRepository.GetAllUsers();
+      foreach (var user in users)
+      {
+        if (user.ID == userId)
+          userRepository.Delete(user);
+      }
+      await userRepository.SaveChangesAsync();
+      return Ok(users);
+    }
   }
 }
