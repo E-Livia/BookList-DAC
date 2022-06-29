@@ -32,4 +32,10 @@ export class CustomValidators{
         const regularExpression = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$");
         return regularExpression.test(control.value)?null:{"invalid E-mail" : true};
     }
+
+    public static passwordValidator (control:FormControl) {
+        // verifies if the password has uppercase and lowercase letters, a digit and a special character
+        const regularExpression = new RegExp("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$");
+        return regularExpression.test(control.value)?null:{"invalid Password" : true};
+    }
 }

@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
         window.localStorage.setItem("token", res.token)
       },(error) => {
         console.error("error");
-        this._snackBar.open(error.error.error, '', {
+        this._snackBar.open("There is no account with these credentials", '', {
           duration: 2000,
         });
       }

@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),
       email: new FormControl(null, [CustomValidators.emailValidator, Validators.required]),
-      password: new FormControl(null, Validators.required),
+      password: new FormControl(null, [CustomValidators.passwordValidator, Validators.required]),
       confirmedPassword: new FormControl(null, Validators.required)
     });
   }
@@ -40,6 +40,14 @@ export class RegisterComponent implements OnInit {
     if (!this.getEmail?.valid)
     {
       this._snackBar.open("Invalid E-mail!", '', {
+        duration: 2000,
+      });
+     return;
+    }
+
+    if (!this.getPassword?.valid)
+    {
+      this._snackBar.open("Invalid Password!", '', {
         duration: 2000,
       });
      return;
