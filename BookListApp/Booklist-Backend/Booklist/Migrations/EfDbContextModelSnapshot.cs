@@ -28,72 +28,18 @@ namespace Booklist.Migrations
                     b.Property<string>("Author")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Category")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Year")
-                        .HasColumnType("int");
-
                     b.HasKey("ID");
 
                     b.ToTable("Books");
-                });
-
-            modelBuilder.Entity("Booklist.DataLayer.Entities.BookCategory", b =>
-                {
-                    b.Property<Guid>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("BookId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CategoryID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("BookId");
-
-                    b.HasIndex("CategoryID");
-
-                    b.ToTable("BookCategories");
-                });
-
-            modelBuilder.Entity("Booklist.DataLayer.Entities.BookImages", b =>
-                {
-                    b.Property<Guid>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("BookId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("url")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("BookId");
-
-                    b.ToTable("Images");
-                });
-
-            modelBuilder.Entity("Booklist.DataLayer.Entities.Category", b =>
-                {
-                    b.Property<Guid>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("CategoryName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Booklist.DataLayer.Entities.User", b =>
@@ -142,36 +88,6 @@ namespace Booklist.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserBooks");
-                });
-
-            modelBuilder.Entity("Booklist.DataLayer.Entities.BookCategory", b =>
-                {
-                    b.HasOne("Booklist.DataLayer.Entities.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Booklist.DataLayer.Entities.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Book");
-
-                    b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("Booklist.DataLayer.Entities.BookImages", b =>
-                {
-                    b.HasOne("Booklist.DataLayer.Entities.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Book");
                 });
 
             modelBuilder.Entity("Booklist.DataLayer.Entities.UserBooks", b =>
