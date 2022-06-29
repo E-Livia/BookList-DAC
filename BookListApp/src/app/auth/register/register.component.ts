@@ -5,7 +5,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserDTO } from '../userDTO';
 import { AuthServiceService } from '../auth-service.service';
-import { CustomValidators } from '../custom-validators';
 
 @Component({
   selector: 'app-register',
@@ -27,7 +26,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = new FormGroup({
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),
-      email: new FormControl(null, [CustomValidators.emailValidator, Validators.required]),
+      email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, Validators.required),
       confirmedPassword: new FormControl(null, Validators.required)
     });
@@ -37,44 +36,22 @@ export class RegisterComponent implements OnInit {
     let user = new UserDTO(this.getFirstName?.value, this.getLastName?.value, this.getEmail?.value,
       this.getPassword?.value);
 
-    if (!this.getEmail?.valid)
-    {
-      this._snackBar.open("Invalid E-mail!", '', {
-        duration: 2000,
-      });
-     return;
-    }
-
     let confirmPassword : Boolean= this.checkPassword(user.password);
     if (confirmPassword == true)
-    {
-      this._snackBar.open("Register successfully!", '', {
-        duration: 2000,
-      });
       this.service.postUser(user).subscribe();
-    }
+    else
+      this._snackBar.open("Confirmed password is not equal to initial password!", '', {
+         duration: 2000,
+      });
+
     
   }
 
 
   checkPassword(password : string) : boolean
   {
-    // password is not at least 6 characters long
-    if (password.length < 6)
-    {
-      this._snackBar.open("Password must be at least 6 characters long!", '', {
-        duration: 2000,
-      });
-      return false;
-    }
-
     if (password == this.getConfirmedPassword?.value)
         return true;
-
-    // password not equal to confirmedPassword
-    this._snackBar.open("Confirmed password is not equal to initial password!", '', {
-      duration: 2000,
-    });
     return false;
   }
 
