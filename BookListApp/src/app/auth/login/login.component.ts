@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { AuthServiceService } from '../auth-service.service';
+import { CookieService } from '../cookieService';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   logInForm!: FormGroup;
 
   constructor(private router: Router, private _snackBar: MatSnackBar, private http: HttpClient,
-    private service: AuthServiceService) { }
+    private service: AuthServiceService, private cookieService : CookieService) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -55,11 +56,31 @@ export class LoginComponent implements OnInit {
       }
     )
     */
+
+
     let email: string = this.email?.value;
     let password: string = this.password?.value;
 
-    this.service.loginUser(email, password).subscribe();
+    const body = {
+      email: email,
+      password: password
+    }
 
+    this.http.post("http://localhost:44340/api/users/login", body).subscribe(
+      (res:any) => {
+        console.log(res)
+        this.router.navigate(['../main-page'])
+        this._snackBar.open('Log in Successfully!', '', {})
+        window.localStorage.setItem("token", res.token)
+      },(error) => {
+        console.error("error");
+        this._snackBar.open(error.error.error, '', {
+          duration: 2000,
+        });
+      }
+
+    )
+    
   }
 
   rememberMe(ob: MatCheckboxChange) {
