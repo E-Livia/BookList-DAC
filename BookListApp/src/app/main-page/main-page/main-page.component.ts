@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BookListInterface } from '../bookList-interface';
+import { Book } from '../book';
 import { BookListService } from '../booklist.service';
+
+import { MatDialog } from '@angular/material/dialog'
+import { AddNewBookComponent } from '../add-new-book/add-new-book.component';
 
 @Component({
   selector: 'app-main-page',
@@ -11,10 +14,10 @@ import { BookListService } from '../booklist.service';
 
 export class MainPageComponent implements OnInit {
 
-  public bookListTable: BookListInterface[] = [];
+  public bookListTable: Book[] = [];
   displayedColumns: string[] = ['title', 'author', 'year', 'description', 'rating'];
 
-  constructor(private tableService: BookListService) { }
+  constructor(private tableService: BookListService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getTableData();
@@ -36,4 +39,15 @@ export class MainPageComponent implements OnInit {
   //     duration: 2000,
   //   })
   // }
+
+  sortByRating () {
+
+  }
+  deleteBook () {
+
+  }
+
+  addBook () {
+    this.dialog.open(AddNewBookComponent);
+  }
 }
