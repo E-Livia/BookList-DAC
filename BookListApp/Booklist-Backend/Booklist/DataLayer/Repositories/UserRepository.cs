@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,7 @@ namespace Booklist.DataLayer.Repositories
     public interface IUserRepository
     {
         void Insert(User user);
+    User GetUser(string email, string password);
         Task<bool> SaveChangesAsync();
     }
     public class UserRepository : IUserRepository
@@ -31,7 +32,11 @@ namespace Booklist.DataLayer.Repositories
                 db.Entry(user).State = EntityState.Added;
             }
         }
-
+        public User GetUser(string email, string password)
+        {
+      var user1 = db.Users.Where(u => u.email == email && u.password == password).SingleOrDefault();
+      return user1;
+        }
         public async Task<bool> SaveChangesAsync()
         {
             try
