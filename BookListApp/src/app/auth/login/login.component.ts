@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { AuthServiceService } from '../auth-service.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 export class LoginComponent implements OnInit {
   logInForm!: FormGroup;
 
-  constructor(private router: Router, private _snackBar: MatSnackBar, private http: HttpClient) { }
+  constructor(private router: Router, private _snackBar: MatSnackBar, private http: HttpClient,
+    private service: AuthServiceService) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -28,10 +30,12 @@ export class LoginComponent implements OnInit {
   }
 
   logIn() {
-    //todo
+    //todo 
+
+    /*
     const body = {
-      email: "eve.holt@reqres.in",
-      password: "cityslicka"
+      email: this.email?.value,
+      password: this.password?.value
     }
 
     this.http.post("https://reqres.in/api/login", body).subscribe(
@@ -50,6 +54,12 @@ export class LoginComponent implements OnInit {
         });
       }
     )
+    */
+    let email: string = this.email?.value;
+    let password: string = this.password?.value;
+
+    this.service.loginUser(email, password).subscribe();
+
   }
 
   rememberMe(ob: MatCheckboxChange) {
