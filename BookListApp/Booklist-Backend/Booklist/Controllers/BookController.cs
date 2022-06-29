@@ -47,9 +47,34 @@ namespace Booklist.Controllers
     }
     [HttpGet]
     [Route("get/category")]
-    public ActionResult<List<Book>> GetBooksByCategory()
+    public ActionResult<List<Book>> GetBooksByCategory([FromQuery] string category)
     {
-      var books = bookRepository.GetBooksByCategory(); 
+      var books = bookRepository.GetBooksByCategory(category); 
+      return Ok(books);
+    }
+    [HttpGet]
+    [Route("delete/all")]
+    public async Task<ActionResult<List<User>>> DeleteAll()
+    {
+      var books = bookRepository.GetAllBooks();
+      foreach(var book in books)
+      {
+        bookRepository.Delete(book);
+      }
+      await bookRepository.SaveChangesAsync();
+      return Ok(books);
+    }
+    [HttpGet]
+    [Route("delete")]
+    public async Task<ActionResult<List<User>>> Delete([FromQuery] Guid bookId)
+    {
+      var books = bookRepository.GetAllBooks();
+      foreach (var book in books)
+      {
+        if(book.ID==bookId)
+        bookRepository.Delete(book);
+      }
+      await bookRepository.SaveChangesAsync();
       return Ok(books);
     }
   }

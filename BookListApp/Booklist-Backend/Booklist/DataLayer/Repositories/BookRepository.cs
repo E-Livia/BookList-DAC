@@ -10,9 +10,10 @@ namespace Booklist.DataLayer.Repositories
   public interface IBookRepository
   {
     void Insert(Book book);
-    List<Book> GetBooksByCategory();
+    List<Book> GetBooksByCategory(string category);
     List<Book> GetAllBooks();
     Task<bool> SaveChangesAsync();
+    void Delete(Book book);
   }
   public class BookRepository : IBookRepository
   {
@@ -24,9 +25,14 @@ namespace Booklist.DataLayer.Repositories
       dbSet = context.Set<Book>();
     }
 
-    public List<Book> GetBooksByCategory()
+    public List<Book> GetBooksByCategory(string category)
     {
-      var books = db.Books.ToList();
+      //am luat id-ul categoriei cu numele category
+      Guid categoryID = db.Categories.Where(c => c.CategoryName == category).Select(c=>c.ID).FirstOrDefault();
+      //am luat ID-urile cartilor din categoria respectiva
+      var bookIDs = db.BookCategories.Where(bc => bc.CategoryID == categoryID).Select(bc=>bc.BookId);
+      //am iterat in lista de ID-uri a cartilor pentru a lua cartile 
+      var books = db.Books.Where(b=> bookIDs.Contains(b.ID)).ToList();
       return books;
     }
 
@@ -55,10 +61,15 @@ namespace Booklist.DataLayer.Repositories
 
     public List<Book> GetAllBooks()
     {
+      
       var books = db.Books.ToList();
       return books;
     }
-   
+    public void Delete(Book record)
+    {
+      db.Books.Remove(record);
+    }
+
   }
 }
 
