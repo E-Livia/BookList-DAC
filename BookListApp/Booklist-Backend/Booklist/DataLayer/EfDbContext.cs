@@ -15,7 +15,9 @@ namespace Booklist.DataLayer
         public DbSet<User> Users { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<UserBooks> UserBooks { get; set; }
-
+        public DbSet<BookCategory> BookCategories { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<BookImages> Images { get; set; }
         public EfDbContext()
         {
       //Data Source=localhost\\SQLEXPRESS
