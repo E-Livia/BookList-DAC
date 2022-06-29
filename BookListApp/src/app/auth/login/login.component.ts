@@ -32,31 +32,28 @@ export class LoginComponent implements OnInit {
 
   logIn() {
     //todo 
+    
+    // const body = {
+    //   email: this.email?.value,
+    //   password: this.password?.value
+    // }
 
-    /*
-    const body = {
-      email: this.email?.value,
-      password: this.password?.value
-    }
-
-    this.http.post("https://reqres.in/api/login", body).subscribe(
-      (res: any) => {
-        console.log(res);
-        this.router.navigateByUrl('main-page');
-        this._snackBar.open('Log In Successfully!', '', {
-          duration: 2000,
-        });
-        window.localStorage.setItem("token",res.token)
-      },
-      (error) => {
-        console.error(error);
-        this._snackBar.open(error.error.error, '', {
-          duration: 2000,
-        });
-      }
-    )
-    */
-
+    // this.http.post("http://localhost:44340/api/users/login", body).subscribe(
+    //   (res: any) => {
+    //     console.log(res);
+    //     this.router.navigateByUrl('main-page');
+    //     this._snackBar.open('Log In Successfully!', '', {
+    //       duration: 2000,
+    //     });
+    //     window.localStorage.setItem("token",res.token)
+    //   },
+    //   (error) => {
+    //     console.error(error);
+    //     this._snackBar.open(error.error.error, '', {
+    //       duration: 2000,
+    //     });
+    //   }
+    // )
 
     let email: string = this.email?.value;
     let password: string = this.password?.value;
@@ -69,8 +66,10 @@ export class LoginComponent implements OnInit {
     this.http.post("http://localhost:44340/api/users/login", body).subscribe(
       (res:any) => {
         console.log(res)
-        this.router.navigate(['../main-page'])
-        this._snackBar.open('Log in Successfully!', '', {})
+        this.router.navigate(['main-page'])
+        this._snackBar.open('Log in Successfully!', '', {
+          duration: 2000,
+        })
         window.localStorage.setItem("token", res.token)
       },(error) => {
         console.error("error");
@@ -78,9 +77,7 @@ export class LoginComponent implements OnInit {
           duration: 2000,
         });
       }
-
-    )
-    
+    )    
   }
 
   rememberMe(ob: MatCheckboxChange) {

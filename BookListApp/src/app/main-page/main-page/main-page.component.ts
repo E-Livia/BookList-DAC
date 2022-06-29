@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,18 +8,17 @@ import { Router } from '@angular/router';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor(private router: Router, private _snackBar: MatSnackBar) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
+  // logout() {
+  //   window.localStorage.removeItem("token");
 
-  logout() {
-    window.localStorage.removeItem("token");
-
-    this.router.navigateByUrl('/auth');
-    this._snackBar.open('Log out successfully!', '', {
-      duration: 2000,
-    })
-  }
+  //   this.router.navigateByUrl('/auth');
+  //   this._snackBar.open('Log out successfully!', '', {
+  //     duration: 2000,
+  //   })
+  // }
 }

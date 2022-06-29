@@ -5980,19 +5980,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\valen\\.nuget\\packages\\": {}
+    "C:\\Users\\Spartacus\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\valen\\Desktop\\Laboratoare\\DAC\\BookListApp\\Booklist-Backend\\Booklist\\Booklist.csproj",
+      "projectUniqueName": "D:\\BookList-DAC\\BookListApp\\Booklist-Backend\\Booklist\\Booklist.csproj",
       "projectName": "Booklist",
-      "projectPath": "C:\\Users\\valen\\Desktop\\Laboratoare\\DAC\\BookListApp\\Booklist-Backend\\Booklist\\Booklist.csproj",
-      "packagesPath": "C:\\Users\\valen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\valen\\Desktop\\Laboratoare\\DAC\\BookListApp\\Booklist-Backend\\Booklist\\obj\\",
+      "projectPath": "D:\\BookList-DAC\\BookListApp\\Booklist-Backend\\Booklist\\Booklist.csproj",
+      "packagesPath": "C:\\Users\\Spartacus\\.nuget\\packages\\",
+      "outputPath": "D:\\BookList-DAC\\BookListApp\\Booklist-Backend\\Booklist\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\valen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Spartacus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6061,7 +6066,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
