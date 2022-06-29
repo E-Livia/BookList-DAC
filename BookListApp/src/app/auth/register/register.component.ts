@@ -35,7 +35,24 @@ export class RegisterComponent implements OnInit {
   postUser() {
     let user = new UserDTO(this.getFirstName?.value, this.getLastName?.value, this.getEmail?.value,
       this.getPassword?.value);
-    this.service.postUser(user).subscribe();
+
+    let confirmPassword : Boolean= this.checkPassword(user.password);
+    if (confirmPassword == true)
+      this.service.postUser(user).subscribe();
+    else
+      this._snackBar.open("Confirmed password is not equal to initial password!", '', {
+         duration: 2000,
+      });
+
+    
+  }
+
+
+  checkPassword(password : string) : boolean
+  {
+    if (password == this.getConfirmedPassword?.value)
+        return true;
+    return false;
   }
 
   get getEmail() {
