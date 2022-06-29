@@ -5985,11 +5985,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\valen\\Desktop\\Booklist-Backend\\Booklist\\Booklist.csproj",
+      "projectUniqueName": "C:\\Users\\valen\\Desktop\\Laboratoare\\DAC\\BookListApp\\Booklist-Backend\\Booklist\\Booklist.csproj",
       "projectName": "Booklist",
-      "projectPath": "C:\\Users\\valen\\Desktop\\Booklist-Backend\\Booklist\\Booklist.csproj",
+      "projectPath": "C:\\Users\\valen\\Desktop\\Laboratoare\\DAC\\BookListApp\\Booklist-Backend\\Booklist\\Booklist.csproj",
       "packagesPath": "C:\\Users\\valen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\valen\\Desktop\\Booklist-Backend\\Booklist\\obj\\",
+      "outputPath": "C:\\Users\\valen\\Desktop\\Laboratoare\\DAC\\BookListApp\\Booklist-Backend\\Booklist\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\valen\\AppData\\Roaming\\NuGet\\NuGet.Config",
