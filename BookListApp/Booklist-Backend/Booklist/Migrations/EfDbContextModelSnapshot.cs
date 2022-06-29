@@ -34,9 +34,6 @@ namespace Booklist.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("Rating")
-                        .HasColumnType("real");
-
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 

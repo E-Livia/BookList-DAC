@@ -14,7 +14,7 @@ namespace Booklist.Controllers
   public class UserController : ControllerBase
   {
 
-    
+    EfDbContext efDbContext;
     private IUserRepository userRepository;
     public UserController(IUserRepository repository)
     {
