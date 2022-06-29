@@ -6,6 +6,7 @@ import { BookListService } from '../booklist.service';
 import { MatDialog } from '@angular/material/dialog'
 import { AddNewBookComponent } from '../add-new-book/add-new-book.component';
 
+import { ChangeDetectorRef } from '@angular/core';
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -17,7 +18,8 @@ export class MainPageComponent implements OnInit {
   public bookListTable: Book[] = [];
   displayedColumns: string[] = ['title', 'author', 'year', 'description', 'rating'];
 
-  constructor(private tableService: BookListService, public dialog: MatDialog) { }
+  constructor(private tableService: BookListService,
+    private changeDetectorRefs: ChangeDetectorRef, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getTableData();
@@ -44,10 +46,20 @@ export class MainPageComponent implements OnInit {
 
   }
   deleteBook () {
-
+    this.getTableData();
+    for (const u of this.bookListTable)
+    {
+      console.log(u.author);
+    }
   }
 
   addBook () {
-    this.dialog.open(AddNewBookComponent);
+    this.dialog.open(AddNewBookComponent).afterClosed().subscribe(result => {
+      this.refresh();
+    });
   }
+
+  refresh() {
+      this.changeDetectorRefs.detectChanges();
+    }
 }
