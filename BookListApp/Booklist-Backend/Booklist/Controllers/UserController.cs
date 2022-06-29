@@ -44,7 +44,11 @@ namespace Booklist.Controllers
     public ActionResult<User> GetUser([FromBody] UserDTO user )
     {
       var user1=userRepository.GetUser(user.email, user.password);
-      return Ok(user1);
+      if (user1 != null)
+        return Ok(user1);
+      else
+        return BadRequest("User was not found!");
     }
+
   }
 }

@@ -11,6 +11,7 @@ namespace Booklist.DataLayer.Repositories
   {
     void Insert(Book book);
     List<Book> GetBooksByCategory();
+    List<Book> GetAllBooks();
     Task<bool> SaveChangesAsync();
   }
   public class BookRepository : IBookRepository
@@ -25,7 +26,8 @@ namespace Booklist.DataLayer.Repositories
 
     public List<Book> GetBooksByCategory()
     {
-      throw new NotImplementedException();
+      var books = db.Books.ToList();
+      return books;
     }
 
     public void Insert(Book book)
@@ -50,6 +52,13 @@ namespace Booklist.DataLayer.Repositories
         return false;
       }
     }
+
+    public List<Book> GetAllBooks()
+    {
+      var books = db.Books.ToList();
+      return books;
+    }
+   
   }
 }
 

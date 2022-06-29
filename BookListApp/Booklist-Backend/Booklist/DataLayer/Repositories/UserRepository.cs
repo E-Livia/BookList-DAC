@@ -34,8 +34,8 @@ namespace Booklist.DataLayer.Repositories
         }
         public User GetUser(string email, string password)
         {
-      var user1 = db.Users.Where(u => u.email == email && u.password == password).SingleOrDefault();
-      return user1;
+          var user1 = db.Users.Where(u => u.email == email && u.password == password).SingleOrDefault();
+          return user1;
         }
         public async Task<bool> SaveChangesAsync()
         {

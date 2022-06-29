@@ -38,5 +38,19 @@ namespace Booklist.Controllers
 
       return Ok(saveResult);
     }
+    [HttpGet]
+    [Route("get/all")]
+    public ActionResult<List<Book>> GetAllBooks()
+    {
+      var books = bookRepository.GetAllBooks();
+      return Ok(books);
+    }
+    [HttpGet]
+    [Route("get/category")]
+    public ActionResult<List<Book>> GetBooksByCategory()
+    {
+      var books = bookRepository.GetBooksByCategory(); 
+      return Ok(books);
+    }
   }
 }
