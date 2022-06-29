@@ -39,9 +39,9 @@ namespace Booklist.Controllers
 
       return Ok(saveResult);
     }
-    [HttpGet]
+    [HttpPost]
     [Route("login")] //localhost:44340/api/users/login
-    public ActionResult<User> GetUser([FromQuery] UserDTO user )
+    public ActionResult<User> GetUser([FromBody] UserDTO user )
     {
       var user1=userRepository.GetUser(user.email, user.password);
       return Ok(user1);

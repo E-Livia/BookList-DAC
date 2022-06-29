@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\corect-BookList-DAC\\BookListApp\\Booklist-Backend\\Booklist\\Booklist.csproj": {}
+    "C:\\Users\\valen\\Desktop\\Laboratoare\\DAC\\BookListApp\\Booklist-Backend\\Booklist\\Booklist.csproj": {}
   },
   "projects": {
-    "D:\\corect-BookList-DAC\\BookListApp\\Booklist-Backend\\Booklist\\Booklist.csproj": {
+    "C:\\Users\\valen\\Desktop\\Laboratoare\\DAC\\BookListApp\\Booklist-Backend\\Booklist\\Booklist.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\corect-BookList-DAC\\BookListApp\\Booklist-Backend\\Booklist\\Booklist.csproj",
+        "projectUniqueName": "C:\\Users\\valen\\Desktop\\Laboratoare\\DAC\\BookListApp\\Booklist-Backend\\Booklist\\Booklist.csproj",
         "projectName": "Booklist",
-        "projectPath": "D:\\corect-BookList-DAC\\BookListApp\\Booklist-Backend\\Booklist\\Booklist.csproj",
-        "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
-        "outputPath": "D:\\corect-BookList-DAC\\BookListApp\\Booklist-Backend\\Booklist\\obj\\",
+        "projectPath": "C:\\Users\\valen\\Desktop\\Laboratoare\\DAC\\BookListApp\\Booklist-Backend\\Booklist\\Booklist.csproj",
+        "packagesPath": "C:\\Users\\valen\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\valen\\Desktop\\Laboratoare\\DAC\\BookListApp\\Booklist-Backend\\Booklist\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\valen\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.214\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }
