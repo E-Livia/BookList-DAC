@@ -181,3 +181,4 @@ D:\BookList-DAC\BookListApp\Booklist-Backend\Booklist\obj\Debug\net5.0\Booklist.
 D:\BookList-DAC\BookListApp\Booklist-Backend\Booklist\obj\Debug\net5.0\ref\Booklist.dll
 D:\BookList-DAC\BookListApp\Booklist-Backend\Booklist\obj\Debug\net5.0\Booklist.pdb
 D:\BookList-DAC\BookListApp\Booklist-Backend\Booklist\obj\Debug\net5.0\Booklist.genruntimeconfig.cache
+C:\Users\valen\Desktop\Laboratoare\DAC\BookListApp\Booklist-Backend\Booklist\bin\Debug\net5.0\web.config
