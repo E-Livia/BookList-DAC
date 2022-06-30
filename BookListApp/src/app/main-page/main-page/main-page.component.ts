@@ -42,9 +42,13 @@ export class MainPageComponent implements OnInit {
   //   })
   // }
 
-  sortByRating () {
+  
 
+  sortByRating () {
+    this.tableService.sortByRating();
+    this.getTableData();
   }
+
   refreshTable () {
     this.getTableData();
     for (const u of this.bookListTable)
@@ -54,7 +58,7 @@ export class MainPageComponent implements OnInit {
   }
 
   deleteBook () {
-    
+
   }
 
   addBook () {

@@ -46,4 +46,11 @@ export class BookListService {
     setBook(booktable:Book[]):void{
         this.tableList = booktable;
       }
+
+    private bookCompareByRating(book1:Book, book2:Book) {
+        return book1.rating - book2.rating;
+    }
+    sortByRating(){
+        this.tableList.sort(this.bookCompareByRating); // rating compare by difference
+    }
 }
