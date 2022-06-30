@@ -12,14 +12,16 @@ export class BookListService {
 
     private membersUrl = 'http://localhost:44340/api/books';
 
-    private tableList: Book[]=[
-        {title:'s',author:'s',year:1990,description:'sadsadsadsadsadsadasdsddadsadsadsadsa dasadsadsadsad sadsadsadsadsdsadsdsadsa sdsadass dsadsadsads asdasdasdasdas',rating:5},
-        {title:'s',author:'s',year:1990,description:'s',rating:5}
-    ];
+    private tableList: Book[]=[];
 
     constructor(private httpClient: HttpClient) { }
 
     getTableList(): Book[] {
+        let books : Observable<Book[]> = this.getBooks();
+
+        
+        books.forEach(b => this.setBook(b));
+
         return this.tableList;
     }
 
@@ -37,7 +39,8 @@ export class BookListService {
 
     getBooks(): Observable<Book[]> {
         // api/books
-        return this.httpClient.get<Book[]>(this.membersUrl);
+        const url = `${this.membersUrl}/get/all`;
+        return this.httpClient.get<Book[]>(url);
     }
 
     setBook(booktable:Book[]):void{

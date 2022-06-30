@@ -22,7 +22,7 @@ export class MainPageComponent implements OnInit {
     private changeDetectorRefs: ChangeDetectorRef, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.getTableData();
+    this.bookListTable = this.tableService.getTableList();
   }
 
   getTableData() {
@@ -45,12 +45,16 @@ export class MainPageComponent implements OnInit {
   sortByRating () {
 
   }
-  deleteBook () {
+  refreshTable () {
     this.getTableData();
     for (const u of this.bookListTable)
     {
       console.log(u.author);
     }
+  }
+
+  deleteBook () {
+    
   }
 
   addBook () {
