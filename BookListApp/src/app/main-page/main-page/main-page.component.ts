@@ -8,6 +8,8 @@ import { AddNewBookComponent } from '../add-new-book/add-new-book.component';
 
 import { ChangeDetectorRef } from '@angular/core';
 import { MatSnackBar, _SnackBarContainer } from '@angular/material/snack-bar';
+import { DeleteBookComponent } from '../delete-book/delete-book.component';
+import { SearchBookComponent } from '../search-book/search-book.component';
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -60,16 +62,26 @@ export class MainPageComponent implements OnInit {
   }
 
   deleteBook () {
-
+    this.dialog.open(DeleteBookComponent).afterClosed().subscribe(result => {
+      this.refresh();
+    });
   }
 
   addBook () {
     this.dialog.open(AddNewBookComponent).afterClosed().subscribe(result => {
       this.refresh();
+      this.getTableData();
     });
   }
 
   refresh() {
       this.changeDetectorRefs.detectChanges();
     }
+
+  searchBook() {
+    this.dialog.open(SearchBookComponent).afterClosed().subscribe(result => {
+      this.refresh();
+      this.getTableData();
+    })
+  }
 }

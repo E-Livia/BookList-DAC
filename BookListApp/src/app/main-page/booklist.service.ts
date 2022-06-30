@@ -37,6 +37,15 @@ export class BookListService {
         
     }
 
+    deleteBook(title : string) {
+        // api/books/delete/book
+
+        const url = `${this.membersUrl}/delete/book`;
+
+        let param = new HttpParams().set('title', title);
+        return this.httpClient.get(url, {params : param}).subscribe();
+    }
+
     getBooks(): Observable<Book[]> {
         // api/books
         const url = `${this.membersUrl}/get/all`;
@@ -52,5 +61,9 @@ export class BookListService {
     }
     sortByRating(){
         this.tableList.sort(this.bookCompareByRating).reverse(); // rating compare by difference
+    }
+
+    searchBook(title : string) {
+        return this.tableList.filter(book => book.title.includes(title));
     }
 }

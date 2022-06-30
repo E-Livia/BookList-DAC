@@ -77,5 +77,20 @@ namespace Booklist.Controllers
       await bookRepository.SaveChangesAsync();
       return Ok(books);
     }
+
+    [HttpGet]
+    [Route("delete/book")]  // /api/books/delete/book
+    public async Task<ActionResult<List<User>>> DeleteBook([FromQuery] string title)
+    {
+        var books = bookRepository.GetAllBooks();
+
+        foreach (var book in books)
+        {
+        if (book.Title == title)
+          bookRepository.Delete(book);
+        }
+      await bookRepository.SaveChangesAsync();
+      return Ok(books);
+    }
   }
 }

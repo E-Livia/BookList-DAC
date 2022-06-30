@@ -14,12 +14,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DeleteBookComponent } from './delete-book/delete-book.component';
+import { SearchBookComponent } from './search-book/search-book.component';
 
 
 @NgModule({
   declarations: [
     MainPageComponent,
     AddNewBookComponent,
+    DeleteBookComponent,
+    SearchBookComponent,
   ],
   imports: [
     CommonModule,
