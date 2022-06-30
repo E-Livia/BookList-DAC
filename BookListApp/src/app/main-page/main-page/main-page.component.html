@@ -7,6 +7,7 @@
   <button mat-button color="primary" (click)="refreshTable()">Refresh Table</button>
   <button mat-button color="primary" (click)="deleteBook()">Delete Book</button>
   <button mat-button color="primary" (click)="sortByRating()">Sort Books By Rating</button>
+  <button mat-button color="primary" (click)="logout()">Logout</button>
   <table mat-table [dataSource]="bookListTable" class="mat-elevation-z8" >
     <ng-container matColumnDef="title">
         <th mat-header-cell *matHeaderCellDef> Title </th>

@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog'
 import { AddNewBookComponent } from '../add-new-book/add-new-book.component';
 
 import { ChangeDetectorRef } from '@angular/core';
+import { MatSnackBar, _SnackBarContainer } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -18,7 +19,8 @@ export class MainPageComponent implements OnInit {
   public bookListTable: Book[] = [];
   displayedColumns: string[] = ['title', 'author', 'year', 'description', 'rating'];
 
-  constructor(private tableService: BookListService,
+  constructor(private tableService: BookListService, private router: Router,
+    private _snackBar : MatSnackBar,
     private changeDetectorRefs: ChangeDetectorRef, public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -33,14 +35,14 @@ export class MainPageComponent implements OnInit {
     this.bookListTable = [];
   }
 
-  // logout() {
-  //   window.localStorage.removeItem("token");
+   logout() {
+     window.localStorage.removeItem("token");
 
-  //   this.router.navigateByUrl('/auth');
-  //   this._snackBar.open('Log out successfully!', '', {
-  //     duration: 2000,
-  //   })
-  // }
+     this.router.navigateByUrl('/auth');
+     this._snackBar.open('Log out successfully!', '', {
+       duration: 2000,
+     })
+   }
 
   
 

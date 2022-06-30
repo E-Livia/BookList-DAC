@@ -51,6 +51,6 @@ export class BookListService {
         return book1.rating - book2.rating;
     }
     sortByRating(){
-        this.tableList.sort(this.bookCompareByRating); // rating compare by difference
+        this.tableList.sort(this.bookCompareByRating).reverse(); // rating compare by difference
     }
 }
