@@ -67,7 +67,7 @@ namespace Booklist
             services
                 .AddDbContext<EfDbContext>(options => options //Data Source=localhost\\SQLEXPRESS
                 //Server=localhost
-                    .UseSqlServer("Server=localhost; Database=Booklist; Trusted_Connection=True"));
+                    .UseSqlServer("Data Source=localhost\\SQLEXPRESS; Database=Booklist; Trusted_Connection=True"));
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();

@@ -27,11 +27,11 @@ namespace Booklist.DataLayer.Repositories
 
     public List<Book> GetBooksByCategory(string category)
     {
-      //am luat id-ul categoriei cu numele category
+      
       Guid categoryID = db.Categories.Where(c => c.CategoryName == category).Select(c=>c.ID).FirstOrDefault();
-      //am luat ID-urile cartilor din categoria respectiva
+      
       var bookIDs = db.BookCategories.Where(bc => bc.CategoryID == categoryID).Select(bc=>bc.BookId);
-      //am iterat in lista de ID-uri a cartilor pentru a lua cartile 
+      
       var books = db.Books.Where(b=> bookIDs.Contains(b.ID)).ToList();
       return books;
     }

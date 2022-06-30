@@ -22,7 +22,7 @@ namespace Booklist.DataLayer
         {
       //Data Source=localhost\\SQLEXPRESS
       //Server=localhost
-      DbContextOptions options = new DbContextOptionsBuilder().UseSqlServer("Server=localhost; Database=Booklist; Trusted_Connection=True").Options;
+      DbContextOptions options = new DbContextOptionsBuilder().UseSqlServer("Data Source=localhost\\SQLEXPRESS; Database=Booklist; Trusted_Connection=True").Options;
         }
         public EfDbContext(DbContextOptions<EfDbContext> options) : base(options)
         {
@@ -37,7 +37,7 @@ namespace Booklist.DataLayer
                    .AddJsonFile("appsettings.Development.json")
                    .Build();//Data Source=localhost\\SQLEXPRESS
                             //Server=localhost
-        var connectionString = "Server=localhost; Database=Booklist; Trusted_Connection=True";
+        var connectionString = "Data Source=localhost\\SQLEXPRESS; Database=Booklist; Trusted_Connection=True";
                 optionsBuilder.UseSqlServer(connectionString);
             }
         }
